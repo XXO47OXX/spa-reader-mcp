@@ -1,0 +1,12 @@
+import { defineConfig } from "vitest/config";
+
+export default defineConfig({
+  test: {
+    globals: true,
+    testTimeout: 60_000,
+    fileParallelism: false,
+    env: {
+      SPA_READER_ALLOW_PRIVATE: "1",
+    },
+  },
+});
