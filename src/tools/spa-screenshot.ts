@@ -1,17 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { takeScreenshot } from "../lib/renderer.js";
-
-const cookieSchema = z.object({
-  name: z.string().min(1).describe("Cookie name"),
-  value: z.string().describe("Cookie value"),
-  domain: z.string().optional().describe("Cookie domain (auto-inferred from URL if omitted)"),
-  path: z.string().optional().describe("Cookie path (default: '/')"),
-  secure: z.boolean().optional().describe("Secure flag"),
-  httpOnly: z.boolean().optional().describe("HttpOnly flag"),
-  expires: z.number().optional().describe("Expiration timestamp"),
-  sameSite: z.enum(["Strict", "Lax", "None"]).optional().describe("SameSite attribute"),
-});
+import { cookieSchema } from "../types.js";
 
 export function registerSpaScreenshotTool(server: McpServer): void {
   server.tool(

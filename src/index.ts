@@ -8,7 +8,7 @@ import { closeBrowser } from "./lib/renderer.js";
 
 const server = new McpServer({
   name: "spa-reader",
-  version: "1.0.0",
+  version: "1.0.3",
 });
 
 registerSpaReadTool(server);
