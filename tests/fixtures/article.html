@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Test Article - Example Site</title>
+  <meta name="author" content="Jane Doe">
+  <meta name="description" content="A test article for spa-reader-mcp">
+</head>
+<body>
+  <nav><a href="/">Home</a> | <a href="/about">About</a></nav>
+  <article>
+    <h1>Understanding JavaScript SPA Rendering</h1>
+    <p class="byline">By Jane Doe | March 10, 2026</p>
+    <p>Single-page applications (SPAs) have transformed how we build web applications. Unlike traditional multi-page websites, SPAs dynamically rewrite content without full page reloads.</p>
+    <h2>How SPAs Work</h2>
+    <p>At their core, SPAs use JavaScript frameworks like <strong>React</strong>, <strong>Vue</strong>, and <strong>Angular</strong> to render content on the client side. When a user navigates to a new "page," the framework intercepts the request and updates the DOM instead of fetching a new HTML document.</p>
+    <h2>The Challenge for Web Scrapers</h2>
+    <p>Traditional web scrapers send HTTP requests and parse the HTML response. But with SPAs, the initial HTML is often just a bare skeleton:</p>
+    <pre><code>&lt;div id="root"&gt;&lt;/div&gt;</code></pre>
+    <p>The actual content only appears after JavaScript executes. This means tools like <code>curl</code> or simple HTTP clients cannot access the rendered content.</p>
+    <h2>Solutions</h2>
+    <p>Headless browsers like <a href="https://playwright.dev">Playwright</a> can execute JavaScript and return the fully rendered DOM. Combined with content extraction libraries, we can reliably extract article content from any SPA.</p>
+    <ul>
+      <li>Playwright renders the page with a real browser engine</li>
+      <li>Readability.js extracts the main article content</li>
+      <li>Turndown converts the HTML to clean Markdown</li>
+    </ul>
+    <p>This pipeline provides LLM-ready Markdown output that preserves the document's semantic structure.</p>
+  </article>
+  <footer><p>&copy; 2026 Example Site</p></footer>
+</body>
+</html>

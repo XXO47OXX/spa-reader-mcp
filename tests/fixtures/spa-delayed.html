@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SPA Delayed Content</title>
+</head>
+<body>
+  <div id="app">Loading...</div>
+  <script>
+    setTimeout(() => {
+      document.getElementById('app').innerHTML = `
+        <article>
+          <h1>Dynamically Loaded Content</h1>
+          <p>This content was injected by JavaScript after a 500ms delay, simulating a typical SPA data fetch.</p>
+          <p>If you can read this, the headless browser successfully waited for JavaScript execution.</p>
+        </article>
+      `;
+      document.getElementById('app').setAttribute('data-loaded', 'true');
+    }, 500);
+  </script>
+</body>
+</html>
